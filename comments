@@ -1,0 +1,19 @@
+// app.get -> bu sorovlarni qabul qilish uchun ishlatiladi (GET so'rovlari)
+// app.post -> bu sorovlarni qabul qilish uchun ishlatiladi (POST so'rovlari)
+// res.end() -> bu javob qaytarish uchun ishlatiladi
+// res.json() -> bu JSON formatda javob qaytarish uchun ishlatiladi
+// res.render() -> bu shablonni render qilish uchun ishlatiladi 
+// render -> bu shablonlarni HTML ga aylantirish jarayoni
+
+// req.body -> bu faqat POST so'rovlarida mavjud bo'lgan ma'lumotlarni o'z ichiga oladi
+
+// BSSR (Backend Server Side Rendering) -> bu server tomonida sahifalarni yaratish texnologiyasi
+// FSSR (Frontend Server Side Rendering) -> bu mijoz tomonida sahifalarni yaratish texnologiyasi
+// API (Application Programming Interface) -> bu dasturlar o'rtasida muloqot qilish uchun interfeys
+// REST (Representational State Transfer) -> bu API dizayn qilish uslubi
+// CRUD (Create, Read, Update, Delete) -> bu ma'lumotlar bilan ishlashning asosiy amallari
+// MVC (Model-View-Controller) -> bu dasturiy ta'minot arxitekturasi
+// Middleware -> bu so'rov va javob o'rtasida ishlaydigan funksiyalar
+// Static Files -> bu o'zgarmaydigan fayllar (CSS, JS, Images)
+// URL-encoded -> bu URL formatida kodlangan ma'lumotlar
+// JSON (JavaScript Object Notation) -> bu ma'lumotlarni almashish formati
