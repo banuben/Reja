@@ -3,6 +3,21 @@ const express = require('express');
 const app = express();
 const http = require('http');  // Node.js ning http modulini chaqiramiz
 
+const fs = require('fs');   // Fayl tizimi moduli, fayllar bilan ishlash uchun
+
+let user;  
+fs.readFile("database/user.json", "utf-8", (err, data) => {  // user.json faylini o'qib olamiz
+  if(err){
+    console.log("Error:", err);
+} else {
+    user = JSON.parse(data);  // O'qilgan ma'lumotni JSON formatiga o'tkazamiz
+}
+});
+
+
+
+
+
 // 1 : Kirish code 
 app.use(express.static('public')); // public folderni statik fayllar uchun ishlatamiz
 app.use(express.json()); // JSON formatdagi so'rovlarni qabul qilish uchun
@@ -33,6 +48,10 @@ app.set("view engine", "ejs"); // EJS shablon dvigatelini sozlaymiz, BSSR(Backen
 app.post("/create-item", (req, res) => {
   console.log(req.body);  // kelgan malumotni konsolga chiqaramiz
   res.json({ status: "Muvaffaqiyatli yaratildi" }); // JSON formatda javob qaytaramiz
+});
+
+app.get('/author', (req, res) => {
+  res.render("author",{user:user}); // views papkasidagi author.ejs shablonini render qilamiz
 });
 
 app.get("/", function(req, res){    // root ga so'rov kelganda
