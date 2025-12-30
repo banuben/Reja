@@ -1,3 +1,22 @@
+// MIT  A-TASK
+function countLetter(letter, word) {
+  let count = 0;
+
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === letter) {
+      count++;
+    }
+  }
+
+  return count;
+}
+console.log(countLetter("e", "engineer"));
+console.log(countLetter("a", "mahalla"));
+console.log(countLetter("e", "kerak"));
+
+
+
+
 // ********************   Event Loop & Callback   ******************** //
 console.log("Train serverni boshlash");
 
