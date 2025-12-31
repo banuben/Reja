@@ -1,58 +1,86 @@
-// MIT  A-TASK
-function countLetter(letter, word) {
-  let count = 0;
+// MIT B-TASK
 
-  for (let i = 0; i < word.length; i++) {
-    if (word[i] === letter) {
-      count++;
-    }
-  }
+// function countDigits(str) {
+//   let count = 0;
 
-  return count;
-}
-console.log(countLetter("e", "engineer"));
-console.log(countLetter("a", "mahalla"));
-console.log(countLetter("e", "kerak"));
+//   for (const char of str) {
+//     if (char >= "0" && char <= "9") {
+//       count++;
+//     }
+//   }
 
+//   return count;
+// }
 
-
-
-// ********************   Event Loop & Callback   ******************** //
-console.log("Train serverni boshlash");
-
-console.log("Jack Ma maslahatlari");
-const list = [
-"yahshi talaba boling", // 0-20
-"togri boshliq tanlang va koproq hato qiling", // 20-30
-"uzingizga ishlashingizni boshlang", // 30-40
-"siz kuchli bolgan narsalarni qiling", // 40-50
-"yoshlarga investitsiya qiling", // 50-60
-"endi dam oling, foydasi yoq endi", // 60
-];
-
-function maslahatBering(a, callback) {
-  if(typeof a !== "number") callback("insert a number", null);
-  else if(a <= 20) callback(null, list[0]);
-  else if(a > 20 && a <= 30) callback(null, list[1]);
-  else if(a > 30 && a <= 40) callback(null, list[2]);
-  else if(a > 40 && a <= 50) callback(null, list[3]);
-  else if(a > 50 && a <= 60) callback(null, list[4]);
-  else {
-    setTimeout(function () {           // setInterval da toxtovsiz javob qataradi
-      callback(null, list[5]);
-    }, 5000);   
- }
+function countDigits(str) {
+  return [...str].filter(char => char >= "0" && char <= "9").length;
 }
 
+console.log(countDigits("ad2a54y79wet0sfgb9")); //7
+console.log(countDigits("sh3546sg09dfef787fdsf87f"));  //11
+console.log(countDigits("hs897dsf87dsf78fd7f8e7df899e87f")); //15
 
-console.log("Passed here 0");
-maslahatBering(65,(err, data) => {
-  if(err) console.log("Error:", err);
-  else {
-    console.log("Javob:", data);
-  }
-});
-console.log("Passed here 1");
+
+
+
+
+
+
+// // MIT  A-TASK
+// function countLetter(letter, word) {
+//   let count = 0;
+
+//   for (let i = 0; i < word.length; i++) {
+//     if (word[i] === letter) {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+// console.log(countLetter("e", "engineer"));
+// console.log(countLetter("a", "mahalla"));
+// console.log(countLetter("e", "kerak"));
+
+
+
+
+// // ********************   Event Loop & Callback   ******************** //
+// console.log("Train serverni boshlash");
+
+// console.log("Jack Ma maslahatlari");
+// const list = [
+// "yahshi talaba boling", // 0-20
+// "togri boshliq tanlang va koproq hato qiling", // 20-30
+// "uzingizga ishlashingizni boshlang", // 30-40
+// "siz kuchli bolgan narsalarni qiling", // 40-50
+// "yoshlarga investitsiya qiling", // 50-60
+// "endi dam oling, foydasi yoq endi", // 60
+// ];
+
+// function maslahatBering(a, callback) {
+//   if(typeof a !== "number") callback("insert a number", null);
+//   else if(a <= 20) callback(null, list[0]);
+//   else if(a > 20 && a <= 30) callback(null, list[1]);
+//   else if(a > 30 && a <= 40) callback(null, list[2]);
+//   else if(a > 40 && a <= 50) callback(null, list[3]);
+//   else if(a > 50 && a <= 60) callback(null, list[4]);
+//   else {
+//     setTimeout(function () {           // setInterval da toxtovsiz javob qataradi
+//       callback(null, list[5]);
+//     }, 5000);   
+//  }
+// }
+
+
+// console.log("Passed here 0");
+// maslahatBering(65,(err, data) => {
+//   if(err) console.log("Error:", err);
+//   else {
+//     console.log("Javob:", data);
+//   }
+// });
+// console.log("Passed here 1");
 
 
 // *****************  Asynchronous Functions  ***************** //
