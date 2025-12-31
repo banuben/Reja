@@ -55,7 +55,7 @@ app.get('/author', (req, res) => {
 });
 
 app.get("/", function(req, res){    // root ga so'rov kelganda
-  res.render("harid");  // views papkasidagi harid.ejs shablonini render qilamiz
+  res.render("reja");  // views papkasidagi reja.ejs shablonini render qilamiz
 });
 
 
@@ -63,6 +63,6 @@ app.get("/", function(req, res){    // root ga so'rov kelganda
 const server = http.createServer(app);   // http serverini yaratamiz
 let PORT = 3000;
 server.listen(PORT, function(){           // serverni belgilangan portda ishga tushiramiz
-  console.log(`Server http://localhost:${PORT} manzilda ishga tushdi`);
+  console.log(`Server ushbu manzilda ishga tushdi: http://localhost:${PORT}, http://locahost:${PORT}`);
 });
 
