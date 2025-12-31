@@ -17,3 +17,7 @@
 // Static Files -> bu o'zgarmaydigan fayllar (CSS, JS, Images)
 // URL-encoded -> bu URL formatida kodlangan ma'lumotlar
 // JSON (JavaScript Object Notation) -> bu ma'lumotlarni almashish formati
+
+
+
+// doim router qurishdan oldin, MongoDb ga ulanish kerak
