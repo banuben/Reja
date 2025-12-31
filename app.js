@@ -48,17 +48,42 @@ app.set("view engine", "ejs"); // EJS shablon dvigatelini sozlaymiz, BSSR(Backen
 // });
 
 app.post("/create-item", (req, res) => {
-  console.log(req.body);  // kelgan malumotni konsolga chiqaramiz
-  res.json({ status: "Muvaffaqiyatli yaratildi" }); // JSON formatda javob qaytaramiz
+  console.log('User entered /create-item');
+  // console.log(req.body);  // kelgan malumotni konsolga chiqaramiz
+  const new_reja = req.body.reja; // formadan kelgan reja maydonini olamiz
+  db.collection('plans').insertOne({ reja: new_reja }, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.end("Xatolik yuz berdi!");
+    } else {
+      res.end('Muvaffaqiyatli yaratildi!');
+    }
+  // res.json({ status: "Muvaffaqiyatli yaratildi" }); // JSON formatda javob qaytaramiz
+  });
 });
 
 app.get('/author', (req, res) => {
   res.render("author",{user:user}); // views papkasidagi author.ejs shablonini render qilamiz
 });
 
-app.get("/", function(req, res){    // root ga so'rov kelganda
-  res.render("reja");  // views papkasidagi reja.ejs shablonini render qilamiz
+app.get("/", function(req, res){
+  console.log('User entered /');
+  db.collection('plans')
+  .find()
+  .toArray((err, data) => {
+    if (err) {
+      console.log(err);
+      res.end("Something went wrong!");
+    } else {
+      // console.log(data);
+      res.render("reja", {items: data});  // views papkasidagi reja.ejs shablonini render qilamiz
+    }
+  });
 });
+
+
+//   res.render("reja");  // views papkasidagi reja.ejs shablonini render qilamiz
+// });
 
 module.exports = app; // app ni tashqi fayllarda ishlatish uchun eksport qilamiz
 
