@@ -52,12 +52,14 @@ app.post("/create-item", (req, res) => {
   // console.log(req.body);  // kelgan malumotni konsolga chiqaramiz
   const new_reja = req.body.reja; // formadan kelgan reja maydonini olamiz
   db.collection('plans').insertOne({ reja: new_reja }, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.end("Xatolik yuz berdi!");
-    } else {
-      res.end('Muvaffaqiyatli yaratildi!');
-    }
+    console.log(data.ops);
+    res.json(data.ops[0]);
+    // if (err) {
+    //   console.log(err);
+    //   res.end("Xatolik yuz berdi!");
+    // } else {
+    //   res.end('Muvaffaqiyatli yaratildi!');
+    // }
   // res.json({ status: "Muvaffaqiyatli yaratildi" }); // JSON formatda javob qaytaramiz
   });
 });
