@@ -1,24 +1,88 @@
-// MIT B-TASK
+// MIT C TASK
 
-// function countDigits(str) {
-//   let count = 0;
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
+  }
 
-//   for (const char of str) {
-//     if (char >= "0" && char <= "9") {
-//       count++;
-//     }
-//   }
+  // hozirgi vaqtni olish uchun yordamchi method
+  getTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    return `${hours}:${minutes}`;
+  }
 
-//   return count;
-// }
+  qoldiq() {
+    return `hozir ${this.getTime()}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`;
+  }
 
-function countDigits(str) {
-  return [...str].filter(char => char >= "0" && char <= "9").length;
+  sotish(mahsulot, son) {
+    if (this[mahsulot] >= son) {
+      this[mahsulot] -= son;
+      console.log(`${this.getTime()}da ${son}ta ${mahsulot} sotildi`);
+    } else {
+      console.log(`${this.getTime()}da ${mahsulot} yetarli emas`);
+    }
+  }
+
+  qabul(mahsulot, son) {
+    this[mahsulot] += son;
+    console.log(`${this.getTime()}da ${son}ta ${mahsulot} qabul qilindi`);
+  }
 }
 
-console.log(countDigits("ad2a54y79wet0sfgb9")); //7
-console.log(countDigits("sh3546sg09dfef787fdsf87f"));  //11
-console.log(countDigits("hs897dsf87dsf78fd7f8e7df899e87f")); //15
+
+
+const shop = new Shop(4, 5, 2);
+
+console.log(shop.qoldiq());
+
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
+
+console.log(shop.qoldiq());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // MIT B-TASK
+
+// // function countDigits(str) {
+// //   let count = 0;
+
+// //   for (const char of str) {
+// //     if (char >= "0" && char <= "9") {
+// //       count++;
+// //     }
+// //   }
+
+// //   return count;
+// // }
+
+// function countDigits(str) {
+//   return [...str].filter(char => char >= "0" && char <= "9").length;
+// }
+
+// console.log(countDigits("ad2a54y79wet0sfgb9")); //7
+// console.log(countDigits("sh3546sg09dfef787fdsf87f"));  //11
+// console.log(countDigits("hs897dsf87dsf78fd7f8e7df899e87f")); //15
 
 
 
