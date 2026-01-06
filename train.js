@@ -1,57 +1,94 @@
-// MIT C TASK
-/*  Shunday class tuzing tuzing nomi Shop, 
-va uni constructoriga 3 hil mahsulot pass bolsin, 
-hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. 
-Har bir method ishga tushgan vaqt ham log qilinsin.
-MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() 
-return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! 
-shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() 
-return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud! */
+/* TASK D : 
+Shunday function tuzing, u 2ta string parametr ega bolsin, 
+hamda agar har ikkala string bir hil harflardan iborat bolsa true 
+aks holda false qaytarsinMASALAN checkContent("mitgroup", "gmtiprou") 
+return qiladi true; */
 
-class Shop {
-  constructor(non, lagmon, cola) {
-    this.non = non;
-    this.lagmon = lagmon;
-    this.cola = cola;
+// with Map
+function checkContent(str1, str2) {
+  if (str1.length !== str2.length) return false;
+
+  const map = new Map();
+
+  for (const c of str1) {
+    map.set(c, (map.get(c) || 0) + 1);
   }
 
-  // hozirgi vaqtni olish uchun yordamchi method
-  getTime() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, "0");
-    const minutes = String(now.getMinutes()).padStart(2, "0");
-    return `${hours}:${minutes}`;
+  for (const c of str2) {
+    if (!map.has(c) || map.get(c) === 0) return false;
+    map.set(c, map.get(c) - 1);
   }
 
-  qoldiq() {
-    return `hozir ${this.getTime()}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`;
-  }
-
-  sotish(mahsulot, son) {
-    if (this[mahsulot] >= son) {
-      this[mahsulot] -= son;
-      console.log(`${this.getTime()}da ${son}ta ${mahsulot} sotildi`);
-    } else {
-      console.log(`${this.getTime()}da ${mahsulot} yetarli emas`);
-    }
-  }
-
-  qabul(mahsulot, son) {
-    this[mahsulot] += son;
-    console.log(`${this.getTime()}da ${son}ta ${mahsulot} qabul qilindi`);
-  }
+  return true;
 }
 
 
+console.log(checkContent("mitgroup", "gmtiprou")); // true
+console.log(checkContent("salom", "annyong"));      // false
+console.log(checkContent("what", "htaw"));      // true
 
-const shop = new Shop(4, 5, 2);
 
-console.log(shop.qoldiq());
 
-shop.sotish("non", 3);
-shop.qabul("cola", 4);
 
-console.log(shop.qoldiq());
+
+
+
+
+
+// // MIT C TASK
+// /*  Shunday class tuzing tuzing nomi Shop, 
+// va uni constructoriga 3 hil mahsulot pass bolsin, 
+// hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. 
+// Har bir method ishga tushgan vaqt ham log qilinsin.
+// MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() 
+// return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! 
+// shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() 
+// return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud! */
+
+// class Shop {
+//   constructor(non, lagmon, cola) {
+//     this.non = non;
+//     this.lagmon = lagmon;
+//     this.cola = cola;
+//   }
+
+//   // hozirgi vaqtni olish uchun yordamchi method
+//   getTime() {
+//     const now = new Date();
+//     const hours = String(now.getHours()).padStart(2, "0");
+//     const minutes = String(now.getMinutes()).padStart(2, "0");
+//     return `${hours}:${minutes}`;
+//   }
+
+//   qoldiq() {
+//     return `hozir ${this.getTime()}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`;
+//   }
+
+//   sotish(mahsulot, son) {
+//     if (this[mahsulot] >= son) {
+//       this[mahsulot] -= son;
+//       console.log(`${this.getTime()}da ${son}ta ${mahsulot} sotildi`);
+//     } else {
+//       console.log(`${this.getTime()}da ${mahsulot} yetarli emas`);
+//     }
+//   }
+
+//   qabul(mahsulot, son) {
+//     this[mahsulot] += son;
+//     console.log(`${this.getTime()}da ${son}ta ${mahsulot} qabul qilindi`);
+//   }
+// }
+
+
+
+// const shop = new Shop(4, 5, 2);
+
+// console.log(shop.qoldiq());
+
+// shop.sotish("non", 3);
+// shop.qabul("cola", 4);
+
+// console.log(shop.qoldiq());
 
 
 
