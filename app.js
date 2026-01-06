@@ -72,17 +72,37 @@ app.post("/delete-item", (req, res) => {
   });
 });
 
-app.post("/edit-item", (req, res) => {
-  const data = req.body;
-  console.log(data);
-  db.collection("plans").findOneAndUpdate(
-    {_id: new mongodb.ObjectId(data.id)}, 
-    {$set: {reja: data.new_input}}, 
-    function(err, data) {
-    res.json({state: "success"});
-  });
-  res.end("Done");
+// app.post("/edit-item", (req, res) => {
+//   const data = req.body;
+//   console.log(data);
+//   db.collection("plans").findOneAndUpdate(
+//     {_id: new mongodb.ObjectId(data.id)}, 
+//     {$set: {reja: data.new_input}}, 
+//     function(err, data) {
+//     res.json({state: "success"});
+//   });
+//   res.end("Done");
+// });
+
+app.post("/edit-item", async (req, res) => {
+  try {
+    const { id, new_input } = req.body;
+
+    await db.collection("plans").findOneAndUpdate(
+      { _id: new mongodb.ObjectId(id) },
+      { $set: { reja: new_input } }
+    );
+
+    if (!res.headersSent) {
+      return res.json({ state: "success", message: "Done" });
+    }
+  } catch (err) {
+    if (!res.headersSent) {
+      return res.status(500).json({ state: "error" });
+    }
+  }
 });
+
 
 
 app.post("/delete-all", (req, res) => {
