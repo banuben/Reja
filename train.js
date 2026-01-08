@@ -1,31 +1,56 @@
-/* TASK D : 
-Shunday function tuzing, u 2ta string parametr ega bolsin, 
-hamda agar har ikkala string bir hil harflardan iborat bolsa true 
-aks holda false qaytarsinMASALAN checkContent("mitgroup", "gmtiprou") 
-return qiladi true; */
+/* TASK E: 
 
-// with Map
-function checkContent(str1, str2) {
-  if (str1.length !== str2.length) return false;
+Shunday function tuzing, u bitta string argumentni qabul qilib 
+osha stringni teskari qilib return qilsin.
+MASALAN: getReverse("hello") return qilsin "olleh" */
 
-  const map = new Map();
 
-  for (const c of str1) {
-    map.set(c, (map.get(c) || 0) + 1);
+function getReverse(str) {
+  let result = "";
+
+  for (const char of str) {
+    result = char + result;
   }
 
-  for (const c of str2) {
-    if (!map.has(c) || map.get(c) === 0) return false;
-    map.set(c, map.get(c) - 1);
-  }
-
-  return true;
+  return result;
 }
 
+console.log(getReverse("hello")); // olleh
+console.log(getReverse("salom")); // molas
+console.log(getReverse("xayr")); // ryax
 
-console.log(checkContent("mitgroup", "gmtiprou")); // true
-console.log(checkContent("salom", "annyong"));      // false
-console.log(checkContent("what", "htaw"));      // true
+
+
+
+
+// /* TASK D : 
+// Shunday function tuzing, u 2ta string parametr ega bolsin, 
+// hamda agar har ikkala string bir hil harflardan iborat bolsa true 
+// aks holda false qaytarsinMASALAN checkContent("mitgroup", "gmtiprou") 
+// return qiladi true; */
+
+// // with Map
+// function checkContent(str1, str2) {
+//   if (str1.length !== str2.length) return false;
+
+//   const map = new Map();
+
+//   for (const c of str1) {
+//     map.set(c, (map.get(c) || 0) + 1);
+//   }
+
+//   for (const c of str2) {
+//     if (!map.has(c) || map.get(c) === 0) return false;
+//     map.set(c, map.get(c) - 1);
+//   }
+
+//   return true;
+// }
+
+
+// console.log(checkContent("mitgroup", "gmtiprou")); // true
+// console.log(checkContent("salom", "annyong"));      // false
+// console.log(checkContent("what", "htaw"));      // true
 
 
 
