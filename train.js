@@ -1,23 +1,44 @@
-/* TASK E: 
+/*  TASK F:
 
-Shunday function tuzing, u bitta string argumentni qabul qilib 
-osha stringni teskari qilib return qilsin.
-MASALAN: getReverse("hello") return qilsin "olleh" */
+Yagona string argumentga ega findDoublers nomli function tuzing
+Agar stringda bittadan ortiq bir xil harflar ishtirok etgan bo'lsa
+true yokida false natija qaytarsin.
 
+MASALAN: findDoublers("hello"); natija true qaytadi. 
+Sababi ikki marotaba takrorlangan 'll' harfi mavjud!  */
 
-function getReverse(str) {
-  let result = "";
-
-  for (const char of str) {
-    result = char + result;
-  }
-
-  return result;
+// set bn
+function findDoublers(str) {
+  return new Set(str).size !== str.length;
 }
 
-console.log(getReverse("hello")); // olleh
-console.log(getReverse("salom")); // molas
-console.log(getReverse("xayr")); // ryax
+console.log(findDoublers("hello")); // true
+console.log(findDoublers("world")); // false
+console.log(findDoublers("xatto")); // true
+
+
+
+
+// /* TASK E: 
+
+// Shunday function tuzing, u bitta string argumentni qabul qilib 
+// osha stringni teskari qilib return qilsin.
+// MASALAN: getReverse("hello") return qilsin "olleh" */
+
+
+// function getReverse(str) {
+//   let result = "";
+
+//   for (const char of str) {
+//     result = char + result;
+//   }
+
+//   return result;
+// }
+
+// console.log(getReverse("hello")); // olleh
+// console.log(getReverse("salom")); // molas
+// console.log(getReverse("xayr")); // ryax
 
 
 
